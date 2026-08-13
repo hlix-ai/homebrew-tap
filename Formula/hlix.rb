@@ -12,9 +12,9 @@ class Hlix < Formula
   depends_on "node"
 
   def install
-    libexec.install "package"
-    chmod 0755, libexec/"package/dist/index.js"
-    bin.install_symlink libexec/"package/dist/index.js" => "hlix"
+    libexec.install Dir["*"]
+    chmod 0755, libexec/"dist/index.js"
+    bin.install_symlink libexec/"dist/index.js" => "hlix"
   end
 
   test do
