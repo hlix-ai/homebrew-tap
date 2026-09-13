@@ -5,8 +5,8 @@
 class Hlix < Formula
   desc "Command-line interface for the hlix control plane"
   homepage "https://hlix.ai"
-  url "https://registry.npmjs.org/@hlix/cli/-/cli-0.4.4.tgz"
-  sha256 "82e268c26d294ad3d11a1a7ae8cdac27d6c7b08407164a043a9e06c5d2e1ed69"
+  url "https://registry.npmjs.org/@hlix/cli/-/cli-0.4.5.tgz"
+  sha256 "08c81ff7f50d1dc35870c41694329066fe8b539e47ea1cbdb4848b80fb8c6837"
   license :cannot_represent
 
   depends_on "node"
