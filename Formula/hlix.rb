@@ -8,6 +8,12 @@ class Hlix < Formula
   version "0.7.0"
   license :cannot_represent
 
+  bottle do
+    root_url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.0"
+    sha256 cellar: :any, arm64_sequoia: "6d5da70e9ce94fb0e7c79f1f95ebee55ffd84708855fb39a83d0af65058d83d5"
+    sha256 cellar: :any, x86_64_linux:  "580c806e411b4038a6dca56e03aaaaaaa665d3d54402ebd8e398e455694409cf"
+  end
+
   depends_on "node"
 
   on_macos do
