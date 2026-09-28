@@ -1,44 +1,42 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Hlix ships the installed CLI and its runtime dependencies.
+# Hlix ships a standalone executable with its runtime embedded.
 class Hlix < Formula
   desc "Command-line interface for the hlix control plane"
   homepage "https://hlix.ai"
-  version "0.7.0"
+  version "0.7.1"
   license :cannot_represent
 
   bottle do
-    root_url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.0"
-    sha256 cellar: :any, arm64_sequoia: "6d5da70e9ce94fb0e7c79f1f95ebee55ffd84708855fb39a83d0af65058d83d5"
-    sha256 cellar: :any, x86_64_linux:  "580c806e411b4038a6dca56e03aaaaaaa665d3d54402ebd8e398e455694409cf"
+    root_url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.1"
+    sha256                               arm64_sequoia: "b91a934bda394f26cd7bc310a46f6f91a67a4cd212df23e0b5ad3a4d4a94559b"
+    sha256 cellar: :any_skip_relocation, sequoia:       "29d1d14c85a7d37f1a7e5ffe5c629cef7b3658f907929e69afcda52eb9d7aa48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09228d387708879f33e4493d0979fe3359b3354962ca250f788f0b10c8ae43e5"
   end
-
-  depends_on "node"
 
   on_macos do
     on_arm do
-      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.0/hlix-0.7.0-darwin-arm64.tar.gz"
-      sha256 "304a4dcc52abde3b3b889cb2a00ef42097ef2de4abaef0aa17d0765c47f44698"
+      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.1/hlix-0.7.1-darwin-arm64.tar.gz"
+      sha256 "cc0ec07de7cfb458defe05f81d9e0be2910504fc8be8f616e6d1273055002232"
     end
     on_intel do
-      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.0/hlix-0.7.0-darwin-x64.tar.gz"
-      sha256 "d6c1378a7a5a0f8ca0b7dba415e0432ebc3ff2651224e6de4c805515dd786892"
+      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.1/hlix-0.7.1-darwin-x64.tar.gz"
+      sha256 "ff921355c5448b28c0549dc70fc049159a6c062cd9a6032edb99cb3de3d0e654"
     end
   end
   on_linux do
     depends_on arch: :x86_64
 
     on_intel do
-      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.0/hlix-0.7.0-linux-x64.tar.gz"
-      sha256 "ec5c4bc14230d45559842618779f3ba38c2940583728466f2ed4b43697817069"
+      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v0.7.1/hlix-0.7.1-linux-x64.tar.gz"
+      sha256 "f6410a293855829d72c93affa8ebaf2740ab0c072d00130b1a60fff7d29b2b46"
     end
   end
 
   def install
-    libexec.install Dir["*"]
-    node = Formula["node"]
-    (bin/"hlix").write_env_script libexec/"dist/index.js", PATH: "#{node.opt_bin}:$PATH"
+    bin.install "hlix"
+    doc.install "THIRD_PARTY_NOTICES", "LICENSE"
   end
 
   test do
