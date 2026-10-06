@@ -1,8 +1,8 @@
 #!/bin/sh
 # Install hlix, the Hlix CLI, as one self-contained executable.
 #
-#   curl -fsSL https://staging.hlix.ai/install.sh | bash
-#   curl -fsSL https://staging.hlix.ai/install.sh | HLIX_VERSION=0.7.1 bash
+#   curl -fsSL https://hlix.ai/install.sh | bash
+#   curl -fsSL https://hlix.ai/install.sh | HLIX_VERSION=0.7.1 bash
 #
 # Installs into ~/.local/bin (HLIX_INSTALL_DIR moves it). Never needs sudo.
 # Running it again upgrades in place. Every download is checked against its
@@ -16,8 +16,9 @@ set -eu
 # defines nothing runnable instead of running half an install.
 main() {
 
-# The one address this script is published at; docs link the same one.
-INSTALL_URL="https://staging.hlix.ai/install.sh"
+# The one address this script is published at; docs link the same one. A
+# staging build of the site serves it with its own host here.
+INSTALL_URL="https://hlix.ai/install.sh"
 RELEASES_URL="${HLIX_RELEASES_URL:-https://github.com/hlix-ai/homebrew-tap/releases/download}"
 LATEST_URL="${HLIX_LATEST_URL:-https://raw.githubusercontent.com/hlix-ai/homebrew-tap/main/latest}"
 NPM_HINT="Install with npm instead: npm install -g @hlix/cli"
