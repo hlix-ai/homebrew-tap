@@ -175,8 +175,9 @@ fetch "$url" "$tmp/$archive" || fail "could not download $url (does version $ver
 fetch "$url.sha256" "$tmp/$archive.sha256" || fail "could not download $url.sha256"
 expected=$(cut -d ' ' -f 1 "$tmp/$archive.sha256")
 actual=$(sha256 "$tmp/$archive")
-[ -n "$expected" ] && [ "$actual" = "$expected" ] ||
+if [ -z "$expected" ] || [ "$actual" != "$expected" ]; then
   fail "checksum mismatch for $archive (published $expected, downloaded $actual). Nothing was installed."
+fi
 tar -xzf "$tmp/$archive" -C "$tmp"
 [ -f "$tmp/$folder/$name" ] || fail "$archive does not contain $name"
 
