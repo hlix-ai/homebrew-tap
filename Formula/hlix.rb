@@ -5,32 +5,32 @@
 class Hlix < Formula
   desc "Command-line interface for the hlix control plane"
   homepage "https://hlix.ai"
-  version "1.3.3"
+  version "2.0.2"
   license :cannot_represent
 
   bottle do
-    root_url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v1.3.3"
-    sha256                               arm64_sequoia: "341cc900a4da62f8552b882dac493eb9d4c017687db0848a3794da7438474593"
-    sha256 cellar: :any_skip_relocation, sequoia:       "c86eeeb1d4face63aca0c70343ea1427b6335c67157b1887644efcf082141e15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "313e08815b5889ad3d88008824488ddcd1acd8ec9120d72961100c8297a72932"
+    root_url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v2.0.2"
+    sha256                               arm64_sequoia: "38a9e24dd885ada3aa11dcda37f110aa388c0186ce22fbe8e16d4df04086d31d"
+    sha256 cellar: :any_skip_relocation, sequoia:       "98d01d6fdcbf98b4a9672a7eb4f3d1762873964fa2315b0649834f615ef3a6f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ace3f1429921e3ace170c632f8a6d79c06ef9224c807516f12d4319183394c43"
   end
 
   on_macos do
     on_arm do
-      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v1.3.3/hlix-1.3.3-darwin-arm64.tar.gz"
-      sha256 "905c73d9c3d3282ff11b42eb68f1638d2bfd33a896403f91fc7d98aa47027573"
+      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v2.0.2/hlix-2.0.2-darwin-arm64.tar.gz"
+      sha256 "f9f901cab02eff169d9924b73c261c4154866a79b0bf2402fd6cadc70b797333"
     end
     on_intel do
-      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v1.3.3/hlix-1.3.3-darwin-x64.tar.gz"
-      sha256 "82374c497ad088171c9d90d3245beb327bacf126b644100c031e985888a5e457"
+      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v2.0.2/hlix-2.0.2-darwin-x64.tar.gz"
+      sha256 "72a88eb9c7e049e1c7c4a8a6b3e1291c1735647354cb1669b3a731f105552e0d"
     end
   end
   on_linux do
     depends_on arch: :x86_64
 
     on_intel do
-      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v1.3.3/hlix-1.3.3-linux-x64.tar.gz"
-      sha256 "323a563f6b53e70475a97ebdca21eb586f637e13877607a3fca3a14bb76635c4"
+      url "https://github.com/hlix-ai/homebrew-tap/releases/download/cli-v2.0.2/hlix-2.0.2-linux-x64.tar.gz"
+      sha256 "dc0fb01ce95861670879ad16c46ca458a8cc0f4ea9e263275ea9f782452ce208"
     end
   end
 
